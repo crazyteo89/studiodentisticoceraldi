@@ -3,8 +3,8 @@
   const root = document.documentElement;
   const reduced = matchMedia('(prefers-reduced-motion: reduce)').matches;
 
-  // Orari: giorno (0 = domenica) -> [apertura, chiusura] in ore
-  const HOURS = { 1: [15, 20], 2: [9, 13], 3: [15, 20] };
+  // Orari: giorno (0 = domenica) -> [apertura, chiusura] in minuti dalla mezzanotte
+  const HOURS = { 1: [900, 1110], 2: [570, 765], 3: [900, 1110] };
   const DAYS = ['domenica', 'lunedì', 'martedì', 'mercoledì', 'giovedì', 'venerdì', 'sabato'];
   const WA_NUMBER = '393311939977';
 
@@ -17,7 +17,7 @@
     const day = ['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat'].indexOf(get('weekday'));
     return { day, minutes: Number(get('hour')) * 60 + Number(get('minute')) };
   }
-  const hh = (h) => `${h}:00`;
+  const hh = (m) => `${Math.floor(m / 60)}:${String(m % 60).padStart(2, '0')}`;
 
   // Stato ricevimento nell'apertura + giorno corrente in tabella
   function updateStatus() {
@@ -28,10 +28,10 @@
     let msg;
     let open = false;
 
-    if (today && minutes >= today[0] * 60 && minutes < today[1] * 60) {
+    if (today && minutes >= today[0] && minutes < today[1]) {
       open = true;
       msg = `Ora in orario di ricevimento, fino alle ${hh(today[1])}`;
-    } else if (today && minutes < today[0] * 60) {
+    } else if (today && minutes < today[0]) {
       msg = `Oggi dalle ${hh(today[0])} alle ${hh(today[1])}, su appuntamento`;
     } else {
       let d = day;
