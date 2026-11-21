@@ -29,6 +29,7 @@
     "logo": "https://www.studiodentisticoceraldi.it/assets/img/logo.png",
     "image": "https://www.studiodentisticoceraldi.it/assets/img/sala-rossa.webp",
     "telephone": "+39 0823 938182",
+    "email": "postmaster@studiodentisticoceraldi.it",
     "foundingDate": "1989",
     "vatID": "IT04286580610",
     "address": {
@@ -89,19 +90,22 @@
             <span data-status-text>Si riceve solo su appuntamento</span>
           </p>
           <div class="hero-actions">
-            <a class="btn btn-accent" href="tel:+390823938182">
+            <a class="btn btn-accent" href="tel:+390823938182" data-magnetic>
               <svg class="i" aria-hidden="true"><use href="#i-phone"/></svg>Chiama lo 0823 938182</a>
-            <a class="btn btn-ghost" href="#prenota">
+            <a class="btn btn-ghost" href="#prenota" data-magnetic>
               <svg class="i" aria-hidden="true"><use href="#i-chat"/></svg>Prenota su WhatsApp</a>
           </div>
         </div>
-        <div class="hero-visual" aria-hidden="true">
-          <div class="scallop-ring"></div>
-          <picture class="scallop hero-photo">
+        <div class="hero-visual" aria-hidden="true" data-hero-visual>
+          <div class="scallop-ring" data-depth="-0.6"></div>
+          <picture class="scallop hero-photo" data-depth="0.5">
             <img src="assets/img/sala-rossa-q.webp" width="798" height="798" alt="" fetchpriority="high">
           </picture>
-          <span class="dot dot-a"></span>
-          <span class="dot dot-b"></span>
+          <span class="dot dot-a" data-depth="1.6"></span>
+          <span class="dot dot-b" data-depth="-1.2"></span>
+          <span class="dot dot-c" data-depth="2.2"></span>
+          <span class="dot dot-d" data-depth="-2"></span>
+          <span class="dot dot-e" data-depth="1"></span>
         </div>
       </div>
     </section>
@@ -109,7 +113,7 @@
     <!-- Lo studio -->
     <section class="section studio" id="studio" aria-labelledby="studio-title">
       <div class="wrap studio-grid">
-        <h2 id="studio-title" class="statement">Conservare i tuoi denti il più a lungo possibile, con cure <em>sempre meno invasive.</em></h2>
+        <h2 id="studio-title" class="statement" data-words>Conservare i tuoi denti il più a lungo possibile, con cure <em>sempre meno invasive.</em></h2>
         <div class="studio-body">
           <figure class="doctor">
             <picture class="scallop doctor-photo">
@@ -188,35 +192,48 @@
 
     <!-- Tecnologie -->
     <section class="section tech" id="tecnologie" aria-labelledby="tech-title">
-      <div class="wrap tech-grid">
-        <div class="tech-copy">
-          <h2 id="tech-title">Strumenti digitali, <em>cure più comode.</em></h2>
-          <ul class="tech-list">
-            <li>
-              <svg class="i tech-icon" aria-hidden="true"><use href="#i-scan"/></svg>
-              <div><h3>Scanner intraorale 3D</h3>
-              <p>Le impronte si prendono con una piccola telecamera, senza la pasta in bocca. Il modello dei tuoi denti compare subito a schermo.</p></div>
-            </li>
-            <li>
-              <svg class="i tech-icon" aria-hidden="true"><use href="#i-cube"/></svg>
-              <div><h3>Pianificazione 3D degli impianti</h3>
-              <p>Ogni intervento di implantologia guidata si progetta al computer prima di entrare in sala.</p></div>
-            </li>
-            <li>
-              <svg class="i tech-icon" aria-hidden="true"><use href="#i-drop"/></svg>
-              <div><h3>Anestesia senza ago</h3>
-              <p>Un sistema che anestetizza senza la classica siringa: una scelta in più per chi ha paura dell'iniezione.</p></div>
-            </li>
-            <li>
-              <svg class="i tech-icon" aria-hidden="true"><use href="#i-xray"/></svg>
-              <div><h3>Panoramica digitale in studio</h3>
-              <p>La radiografia panoramica si esegue direttamente qui, senza spostarsi in un altro centro.</p></div>
-            </li>
-          </ul>
+      <div class="tech-track" data-tech>
+        <div class="wrap tech-grid tech-sticky">
+          <div class="tech-copy">
+            <h2 id="tech-title">Strumenti digitali, <em>cure più comode.</em></h2>
+            <ul class="tech-list">
+              <li data-i="0">
+                <svg class="i tech-icon" aria-hidden="true"><use href="#i-scan"/></svg>
+                <div><h3>Scanner intraorale 3D</h3>
+                <p>Le impronte si prendono con una piccola telecamera, senza la pasta in bocca. Il modello dei tuoi denti compare subito a schermo.</p></div>
+              </li>
+              <li data-i="1">
+                <svg class="i tech-icon" aria-hidden="true"><use href="#i-cube"/></svg>
+                <div><h3>Pianificazione 3D degli impianti</h3>
+                <p>Ogni intervento di implantologia guidata si progetta al computer prima di entrare in sala.</p></div>
+              </li>
+              <li data-i="2">
+                <svg class="i tech-icon" aria-hidden="true"><use href="#i-drop"/></svg>
+                <div><h3>Anestesia senza ago</h3>
+                <p>Un sistema che anestetizza senza la classica siringa: una scelta in più per chi ha paura dell'iniezione.</p></div>
+              </li>
+              <li data-i="3">
+                <svg class="i tech-icon" aria-hidden="true"><use href="#i-xray"/></svg>
+                <div><h3>Panoramica digitale in studio</h3>
+                <p>La radiografia panoramica si esegue direttamente qui, senza spostarsi in un altro centro.</p></div>
+              </li>
+            </ul>
+          </div>
+          <div class="tech-visual" aria-hidden="true">
+            <figure class="tech-photo">
+              <img src="assets/img/sala-blu.webp" width="1600" height="665" alt="" loading="lazy" data-parallax>
+            </figure>
+            <div class="tech-stage">
+              <div class="tech-badge">
+                <svg class="tech-glyph" data-g="0" viewBox="0 0 24 24"><path pathLength="1" d="M3 7V5a2 2 0 0 1 2-2h2M17 3h2a2 2 0 0 1 2 2v2M21 17v2a2 2 0 0 1-2 2h-2M7 21H5a2 2 0 0 1-2-2v-2"/><path pathLength="1" d="M7.5 8.5c1.5-1 3-.5 4.5.5 1.5-1 3-1.5 4.5-.5 1 1.2.7 3.5 0 5.5-.6 1.8-1.2 2.5-1.8 2-.5-.6-.7-2.6-2.7-2.6s-2.2 2-2.7 2.6c-.6.5-1.2-.2-1.8-2-.7-2-1-4.3 0-5.5z"/></svg>
+                <svg class="tech-glyph" data-g="1" viewBox="0 0 24 24"><path pathLength="1" d="M21 8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"/><path pathLength="1" d="m3.3 7 8.7 5 8.7-5M12 22V12"/></svg>
+                <svg class="tech-glyph" data-g="2" viewBox="0 0 24 24"><path pathLength="1" d="M12 22a7 7 0 0 0 7-7c0-2-1-3.9-3-5.5s-3.5-4-4-6.5c-.5 2.5-2 4.9-4 6.5C6 11.1 5 13 5 15a7 7 0 0 0 7 7z"/><path pathLength="1" d="M4 4l16 16"/></svg>
+                <svg class="tech-glyph" data-g="3" viewBox="0 0 24 24"><rect pathLength="1" x="2" y="5" width="20" height="14" rx="2"/><path pathLength="1" d="M6 12c1.2-2 2.4-2 3.6 0s2.4 2 3.6 0 2.4-2 3.6 0 1.2 1 1.2 1"/></svg>
+              </div>
+              <ol class="tech-dots"><li></li><li></li><li></li><li></li></ol>
+            </div>
+          </div>
         </div>
-        <figure class="tech-photo reveal">
-          <img src="assets/img/sala-blu.webp" width="1600" height="665" alt="Una delle sale operative dello studio, con il riunito e le attrezzature" loading="lazy">
-        </figure>
       </div>
     </section>
 
@@ -227,12 +244,14 @@
           <h2 id="visit-title">La prima visita</h2>
           <p>Serve a conoscerci e a capire di cosa hai bisogno. Ecco come si svolge.</p>
         </div>
-        <ol class="steps">
+        <ol class="steps" data-steps>
           <li class="step">
+            <span class="step-line" aria-hidden="true"><span class="step-fill"></span></span>
             <h3>Ascolto</h3>
             <p>Ci racconti fastidi, timori e cosa vorresti migliorare del tuo sorriso.</p>
           </li>
           <li class="step">
+            <span class="step-line" aria-hidden="true"><span class="step-fill"></span></span>
             <h3>Esame completo</h3>
             <p>Il Dottore controlla denti, gengive e tessuti molli: guance, labbra e lingua. Se serve si aggiungono radiografie, impronte digitali e fotografie.</p>
           </li>
@@ -249,7 +268,7 @@
       <div class="wrap">
         <h2 id="rooms-title" class="rooms-title">Lo studio, <em>dentro.</em></h2>
         <div class="rooms-grid">
-          <figure class="room room-wide reveal"><img src="assets/img/sala-rossa.webp" width="1600" height="665" alt="La sala operativa con le poltrone rosse" loading="lazy"></figure>
+          <figure class="room room-wide reveal"><img data-parallax src="assets/img/sala-rossa.webp" width="1600" height="665" alt="La sala operativa con le poltrone rosse" loading="lazy"></figure>
           <figure class="room reveal"><img src="assets/img/attesa-1.webp" width="310" height="180" alt="La sala d'attesa con il divano arancione e l'angolo per i bambini" loading="lazy"></figure>
           <figure class="room reveal"><img src="assets/img/attesa-2.webp" width="310" height="180" alt="La sala d'attesa con le poltrone e il tavolino per i bambini" loading="lazy"></figure>
         </div>
@@ -321,7 +340,7 @@
             <textarea id="f-note" name="note" rows="3"></textarea>
           </div>
 
-          <button class="btn btn-primary btn-block" type="submit">
+          <button class="btn btn-primary btn-block" type="submit" data-magnetic>
             <svg class="i" aria-hidden="true"><use href="#i-chat"/></svg>Continua su WhatsApp</button>
         </form>
       </div>
@@ -358,7 +377,8 @@
       <div class="footer-brand">
         <span class="footer-logo"><img src="assets/img/logo-412.webp" width="206" height="79" alt="Studio Dentistico Giovanni Ceraldi" loading="lazy"></span>
         <p>Viale Trieste s.n.c., 81037 Sessa Aurunca (CE)<br>
-          <a href="tel:+390823938182">0823 938182</a> · <a href="https://wa.me/393311939977" rel="noopener">WhatsApp 331 1939977</a></p>
+          <a href="tel:+390823938182">0823 938182</a> · <a href="https://wa.me/393311939977" rel="noopener">WhatsApp 331 1939977</a><br>
+          <a href="mailto:postmaster@studiodentisticoceraldi.it">postmaster@studiodentisticoceraldi.it</a></p>
         <ul class="social">
           <li><a href="https://www.instagram.com/studiodentisticoceraldi/" rel="noopener" target="_blank">Instagram<svg class="i" aria-hidden="true"><use href="#i-arrow"/></svg></a></li>
           <li><a href="https://www.facebook.com/StudioDentisticoCeraldi/" rel="noopener" target="_blank">Facebook<svg class="i" aria-hidden="true"><use href="#i-arrow"/></svg></a></li>
@@ -366,7 +386,6 @@
       </div>
       <dl class="legal">
         <div><dt>Direttore sanitario</dt><dd>Dott. Giovanni Ceraldi</dd></div>
-        <div><dt>Iscrizione Albo Odontoiatri</dt><dd><mark class="todo">Ordine di Caserta n. ___ (da fornire)</mark></dd></div>
         <div><dt>Partita IVA</dt><dd>04286580610</dd></div>
       </dl>
       <p class="footer-bottom">© <span data-year>2026</span> Studio Dentistico Ceraldi · <a href="privacy.html">Privacy e cookie</a></p>
