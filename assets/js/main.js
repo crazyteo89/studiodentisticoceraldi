@@ -158,10 +158,10 @@
   document.querySelector('[data-map-load]')?.addEventListener('click', () => {
     const map = document.querySelector('[data-map]');
     const iframe = document.createElement('iframe');
-    iframe.title = 'Mappa: Studio Dentistico Ceraldi, Viale Trieste, Sessa Aurunca';
+    iframe.title = 'Mappa: Studio Dentistico Ceraldi, Viale Trieste, Res. Traianea, Sessa Aurunca';
     iframe.loading = 'lazy';
     iframe.referrerPolicy = 'no-referrer-when-downgrade';
-    iframe.src = 'https://www.google.com/maps?q=41.230587,13.929343&z=17&output=embed';
+    iframe.src = `https://www.google.com/maps?q=${encodeURIComponent('Studio Dentistico Ceraldi, Viale Trieste Res. Traianea, 81037 Sessa Aurunca CE')}&z=17&output=embed`;
     map.replaceChildren(iframe);
   });
 
