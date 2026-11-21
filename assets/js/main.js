@@ -213,7 +213,7 @@
     hero.addEventListener('pointerleave', () => { mouse.tx = 0; mouse.ty = 0; });
   }
 
-  // Tecnologie: sezione bloccata che avanza voce per voce (solo desktop)
+  // Tecnologie: la foto accompagna le voci, attiva quella al centro (solo desktop)
   const track = document.querySelector('[data-tech]');
   const techItems = track ? [...track.querySelectorAll('.tech-list li')] : [];
   const glyphs = track ? [...track.querySelectorAll('.tech-glyph')] : [];
@@ -239,9 +239,7 @@
   pinMq.addEventListener('change', setPin);
   techItems.forEach((li, k) => li.addEventListener('click', () => {
     if (!pinned) return;
-    const top = track.getBoundingClientRect().top + scrollY;
-    const span = track.offsetHeight - innerHeight;
-    scrollTo({ top: top + span * ((k + 0.5) / techItems.length), behavior: 'smooth' });
+    li.scrollIntoView({ block: 'center', behavior: 'smooth' });
   }));
 
   let ticking = false;
@@ -302,10 +300,15 @@
 
     // avanzamento Tecnologie
     if (pinned) {
-      const r = track.getBoundingClientRect();
-      const span = track.offsetHeight - vh;
-      const p = clamp(-r.top / span, 0, 0.999);
-      setTech(Math.floor(p * techItems.length));
+      // voce attiva: quella più vicina al centro dello schermo
+      let best = 0;
+      let dist = Infinity;
+      techItems.forEach((li, k) => {
+        const r = li.getBoundingClientRect();
+        const d = Math.abs(r.top + r.height / 2 - vh / 2);
+        if (d < dist) { dist = d; best = k; }
+      });
+      setTech(best);
     }
   };
   const request = () => { if (!ticking) { ticking = true; requestAnimationFrame(frame); } };

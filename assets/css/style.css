@@ -295,11 +295,13 @@ button { font: inherit; }
 .tech-photo img { width: 100%; height: 100%; object-fit: cover; object-position: 40% 50%; scale: 1.12; }
 .tech-stage { display: none; }
 
-/* Versione a scorrimento (desktop, attivata dallo script) */
-.pin-tech .tech { padding-block: 0; }
-.pin-tech .tech-track { height: 340vh; }
-.pin-tech .tech-sticky { position: sticky; top: var(--header-h); min-height: calc(100vh - var(--header-h)); padding-block: var(--s-7); }
+/* Versione con foto che accompagna le voci (desktop, attivata dallo script) */
+/* il testo scorre normalmente, la foto resta accanto finché ci sono voci da leggere */
+.pin-tech .tech-grid { align-items: start; }
+.pin-tech .tech-visual { position: sticky; top: calc(var(--header-h) + (100vh - var(--header-h) - min(68vh, 620px)) / 2); }
 .pin-tech .tech-photo { aspect-ratio: auto; height: min(68vh, 620px); }
+.pin-tech .tech-list li { padding-block: clamp(var(--s-6), 7vh, var(--s-8)); }
+.pin-tech .tech-list { margin-bottom: 12vh; }
 .pin-tech .tech-photo::after { content: ""; position: absolute; inset: 0; border-radius: inherit; background: linear-gradient(180deg, rgb(31 55 99 / .05), rgb(31 55 99 / .55)); }
 .pin-tech .tech-photo { position: relative; }
 .pin-tech .tech-list li { cursor: pointer; }
