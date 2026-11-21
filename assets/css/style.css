@@ -181,7 +181,18 @@ button { font: inherit; }
 .scallop { display: block; -webkit-mask: url("../img/scallop.svg") center / contain no-repeat; mask: url("../img/scallop.svg") center / contain no-repeat; }
 .scallop img { width: 100%; height: 100%; object-fit: cover; }
 .hero-photo { position: absolute; inset: 7%; }
-.hero-photo img { object-position: 58% 50%; }
+.hero-photo img { object-position: 50% 40%; }
+.hero-tag {
+  position: absolute; left: -2%; bottom: 12%; z-index: 2; margin: 0;
+  display: grid; gap: 2px; padding: var(--s-3) var(--s-5) var(--s-3) var(--s-5);
+  background: #fff; border-radius: var(--r-md); box-shadow: var(--shadow); line-height: 1.25;
+  animation: float 8s var(--ease-in-out) infinite alternate; animation-delay: -2s;
+}
+.hero-tag strong { font: 600 1.05rem/1.25 var(--serif); color: var(--blue-900); }
+.hero-tag span { font-size: var(--fs-xs); color: var(--ink-2); }
+.hero-tag::before { content: ""; position: absolute; left: -6px; top: 50%; width: 12px; height: 12px; margin-top: -6px; border-radius: 50%; background: var(--orange-500); box-shadow: 0 0 0 4px #fff; }
+.js .hero-tag { opacity: 0; scale: .96; transition: opacity .6s var(--ease-out) 1.1s, scale .7s var(--ease-out) 1.1s; }
+.is-ready .hero-tag { opacity: 1; scale: 1; }
 .scallop-ring {
   position: absolute; inset: 0; background: var(--orange-500);
   -webkit-mask: url("../img/scallop.svg") center / contain no-repeat; mask: url("../img/scallop.svg") center / contain no-repeat;
@@ -195,7 +206,7 @@ button { font: inherit; }
 .dot-d { width: 26px; height: 26px; background: rgb(227 235 254 / .14); left: 8%; bottom: 2%; animation-duration: 10s; }
 .dot-e { width: 6px; height: 6px; background: #fff; left: 46%; top: -2%; animation-duration: 8s; animation-delay: -4s; }
 @keyframes float { from { transform: translateY(-10px); } to { transform: translateY(12px); } }
-.hero-photo, .scallop-ring, .dot { will-change: translate; }
+.hero-photo, .scallop-ring, .dot, .hero-tag { will-change: translate; }
 
 /* Ingresso dell'apertura, una volta */
 .js .hero-title .w { display: inline-block; overflow: clip; overflow-clip-margin: .12em; vertical-align: bottom; padding-bottom: .06em; }
@@ -237,7 +248,7 @@ button { font: inherit; }
 .studio-body { display: grid; gap: var(--s-6); padding-top: var(--s-3); }
 .doctor { margin: 0; display: flex; align-items: center; gap: var(--s-5); }
 .doctor-photo { width: 132px; aspect-ratio: 1; flex: none; }
-.doctor-photo img { object-position: 50% 30%; }
+.doctor-photo img { object-position: 50% 50%; }
 .doctor figcaption { display: grid; line-height: 1.35; }
 .doctor figcaption strong { font: 600 var(--fs-lg)/1.3 var(--serif); color: var(--blue-900); }
 .doctor figcaption span { color: var(--ink-2); font-size: var(--fs-sm); }
@@ -476,6 +487,8 @@ mark.todo { background: #ffe08a; color: #4a3500; padding: 1px 6px; border-radius
   .hero-actions .btn { width: 100%; }
   .hero-grid { padding-block: var(--s-6) var(--s-7); gap: var(--s-5); }
   .hero-visual { width: min(54%, 240px); justify-self: start; }
+  .hero-tag { left: 92%; bottom: 34%; width: max-content; max-width: 150px; padding: var(--s-2) var(--s-3) var(--s-2) var(--s-4); border-radius: var(--r-sm); }
+  .hero-tag strong { font-size: .9rem; }
   .hero-lead { margin-top: var(--s-4); font-size: var(--fs-base); }
   .status { margin-top: var(--s-5); }
 }
@@ -490,7 +503,7 @@ mark.todo { background: #ffe08a; color: #4a3500; padding: 1px 6px; border-radius
   .step::before { background: var(--orange-500); }
   .js .section-head h2, .js .rooms-title, .js .section-head p, .js .t-list .t-item, .js .booking { opacity: 1; translate: none; }
   .js .section-head h2::after { transform: none; }
-  .js .hero-photo img { scale: 1; } .js .dot { opacity: 1; }
+  .js .hero-photo img { scale: 1; } .js .dot, .js .hero-tag { opacity: 1; scale: 1; }
   .js .statement[data-words] .sw { color: inherit; }
   .step-fill { transform: none !important; }
 }

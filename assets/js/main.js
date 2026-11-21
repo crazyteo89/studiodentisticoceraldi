@@ -113,7 +113,7 @@
 
   // Rivelazione delle foto all'ingresso, una volta
   document.querySelectorAll('.t-list .t-item').forEach((el, k) => el.style.setProperty('--k', k));
-  const reveals = document.querySelectorAll('.reveal, .steps, .section-head, .rooms-title, .t-list, .booking');
+  const reveals = document.querySelectorAll('.reveal, .section-head, .rooms-title, .t-list, .booking');
   if ('IntersectionObserver' in window && !reduced) {
     const io = new IntersectionObserver((entries) => {
       entries.forEach((en) => {
@@ -195,6 +195,10 @@
   }
 
   const parallaxImgs = [...document.querySelectorAll('[data-parallax]')];
+  const stepsList = document.querySelector('[data-steps]');
+  const stepEls = stepsList ? [...stepsList.querySelectorAll('.step')] : [];
+  const stepFills = stepsList ? [...stepsList.querySelectorAll('.step-fill')] : [];
+  const vertical = matchMedia('(max-width: 767px)');
   const heroVisual = document.querySelector('[data-hero-visual]');
   const depthEls = heroVisual ? [...heroVisual.querySelectorAll('[data-depth]')] : [];
   const ring = heroVisual?.querySelector('.scallop-ring');
@@ -266,6 +270,24 @@
       const p = clamp((vh * 0.85 - r.top) / (r.height + vh * 0.35), 0, 1);
       const lit = Math.round(p * words.length);
       words.forEach((w, k) => w.classList.toggle('is-lit', k < lit));
+    }
+
+    // prima visita: linea e pallini seguono lo scroll
+    if (stepsList) {
+      let p = 1;
+      if (!reduced) {
+        const r = stepsList.getBoundingClientRect();
+        // parte quando la lista entra al 80% dello schermo, finisce quando il fondo arriva al 55%
+        const start = vh * 0.8;
+        const end = vh * 0.55;
+        p = clamp((start - r.top) / (r.height + start - end), 0, 1);
+      }
+      const segs = stepFills.length;
+      stepFills.forEach((f, k) => {
+        const v = clamp(p * segs - k, 0, 1);
+        f.style.transform = vertical.matches ? `scaleY(${v.toFixed(3)})` : `scaleX(${v.toFixed(3)})`;
+      });
+      stepEls.forEach((st, k) => st.classList.toggle('is-lit', p * segs >= k - 0.001 && p > 0));
     }
 
     // parallasse delle foto
