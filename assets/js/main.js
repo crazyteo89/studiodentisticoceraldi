@@ -4,7 +4,7 @@
   const reduced = matchMedia('(prefers-reduced-motion: reduce)').matches;
 
   // Orari: giorno (0 = domenica) -> [apertura, chiusura] in ore
-  const HOURS = { 1: [15, 20], 2: [9, 13], 3: [15, 20], 4: [15, 20], 5: [9, 13] };
+  const HOURS = { 1: [15, 20], 2: [9, 13], 3: [15, 20] };
   const DAYS = ['domenica', 'lunedì', 'martedì', 'mercoledì', 'giovedì', 'venerdì', 'sabato'];
   const WA_NUMBER = '393311939977';
 
