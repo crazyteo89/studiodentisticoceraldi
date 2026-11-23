@@ -295,9 +295,10 @@
       let p = 1;
       if (!reduced) {
         const r = routeBox.getBoundingClientRect();
-        // parte quando la foto entra all'85% dello schermo, finisce quando il suo centro arriva a metà
-        const start = vh * 0.85;
-        p = clamp((start - r.top) / (start - vh * 0.5 + r.height * 0.5), 0, 1);
+        // parte quando la foto è tutta visibile, finisce quando arriva sotto l'header (corsa minima 160px)
+        const start = vh - r.height - 24;
+        const end = Math.min((header?.offsetHeight || 0) + 16, start - 160);
+        p = clamp((start - r.top) / (start - end), 0, 1);
       }
       routePath.style.strokeDashoffset = (1 - p).toFixed(4);
       routeBox.classList.toggle('is-done', p >= 1);
