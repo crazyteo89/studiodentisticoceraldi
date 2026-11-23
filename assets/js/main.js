@@ -158,7 +158,7 @@
   document.querySelector('[data-map-load]')?.addEventListener('click', () => {
     const map = document.querySelector('[data-map]');
     const iframe = document.createElement('iframe');
-    iframe.title = 'Mappa: Studio Dentistico Ceraldi, Viale Trieste, Res. Traianea, Sessa Aurunca';
+    iframe.title = 'Mappa: Studio Dentistico Ceraldi, Viale Trieste snc, Sessa Aurunca';
     iframe.loading = 'lazy';
     iframe.referrerPolicy = 'no-referrer-when-downgrade';
     iframe.src = `https://www.google.com/maps?q=${encodeURIComponent('Studio Dentistico Ceraldi, Viale Trieste Res. Traianea, 81037 Sessa Aurunca CE')}&z=17&output=embed`;
@@ -198,6 +198,8 @@
   const stepsList = document.querySelector('[data-steps]');
   const stepEls = stepsList ? [...stepsList.querySelectorAll('.step')] : [];
   const stepFills = stepsList ? [...stepsList.querySelectorAll('.step-fill')] : [];
+  const routeBox = document.querySelector('[data-route]');
+  const routePath = routeBox?.querySelector('.route-path');
   const vertical = matchMedia('(max-width: 767px)');
   const heroVisual = document.querySelector('[data-hero-visual]');
   const depthEls = heroVisual ? [...heroVisual.querySelectorAll('[data-depth]')] : [];
@@ -286,6 +288,19 @@
         f.style.transform = vertical.matches ? `scaleY(${v.toFixed(3)})` : `scaleX(${v.toFixed(3)})`;
       });
       stepEls.forEach((st, k) => st.classList.toggle('is-lit', p * segs >= k - 0.001 && p > 0));
+    }
+
+    // percorso dall'alto: si disegna con lo scroll
+    if (routePath) {
+      let p = 1;
+      if (!reduced) {
+        const r = routeBox.getBoundingClientRect();
+        // parte quando la foto entra all'85% dello schermo, finisce quando il suo centro arriva a metà
+        const start = vh * 0.85;
+        p = clamp((start - r.top) / (start - vh * 0.5 + r.height * 0.5), 0, 1);
+      }
+      routePath.style.strokeDashoffset = (1 - p).toFixed(4);
+      routeBox.classList.toggle('is-done', p >= 1);
     }
 
     // parallasse delle foto

@@ -18,7 +18,7 @@
   <link rel="apple-touch-icon" href="assets/img/icon-180.png">
   <link rel="preload" href="assets/fonts/source-serif-4-latin-wght-normal.woff2" as="font" type="font/woff2" crossorigin>
   <link rel="preload" href="assets/fonts/figtree-latin-wght-normal.woff2" as="font" type="font/woff2" crossorigin>
-  <link rel="stylesheet" href="assets/css/style.css?v=5">
+  <link rel="stylesheet" href="assets/css/style.css?v=6">
   <script>document.documentElement.classList.add('js')</script>
   <script type="application/ld+json">
   {
@@ -34,7 +34,7 @@
     "vatID": "IT04286580610",
     "address": {
       "@type": "PostalAddress",
-      "streetAddress": "Viale Trieste, Res. Traianea",
+      "streetAddress": "Viale Trieste snc",
       "addressLocality": "Sessa Aurunca",
       "postalCode": "81037",
       "addressRegion": "CE",
@@ -350,24 +350,45 @@
 
     <!-- Dove siamo -->
     <section class="section where" id="dove" aria-labelledby="dove-title">
-      <div class="wrap where-grid">
-        <div class="where-copy">
+      <div class="wrap">
+        <div class="section-head">
           <h2 id="dove-title">Dove siamo</h2>
-          <address>
-            Studio Dentistico Ceraldi<br>
-            Viale Trieste, Res. Traianea<br>
-            81037 Sessa Aurunca (CE)
-          </address>
-          <div class="where-links">
-            <a class="link-arrow" href="https://www.google.com/maps/dir/?api=1&amp;destination=Studio+Dentistico+Ceraldi&amp;destination_place_id=ChIJVdut1wnoOhMRwO00Xf3rjd8" rel="noopener" target="_blank">Indicazioni stradali<svg class="i" aria-hidden="true"><use href="#i-arrow"/></svg></a>
-            <a class="link-arrow" href="https://www.google.com/maps/search/?api=1&amp;query=Studio+Dentistico+Ceraldi&amp;query_place_id=ChIJVdut1wnoOhMRwO00Xf3rjd8" rel="noopener" target="_blank">Apri in Google Maps<svg class="i" aria-hidden="true"><use href="#i-arrow"/></svg></a>
-          </div>
+          <p>Arrivare allo studio è facile: ecco il percorso e il palazzo da riconoscere.</p>
         </div>
-        <div class="map" data-map>
-          <div class="map-facade">
-            <svg class="i map-pin" aria-hidden="true"><use href="#i-pin"/></svg>
-            <p>La mappa è fornita da Google: caricandola, Google riceve alcuni dati di navigazione.</p>
-            <button class="btn btn-secondary" type="button" data-map-load>Mostra la mappa</button>
+        <div class="find">
+          <figure class="find-step">
+            <div class="find-aerial reveal" data-route>
+              <img src="assets/img/percorso-dall-alto.webp" width="1080" height="864" alt="Vista dall'alto della zona dello studio, con il percorso segnato fino al palazzo" loading="lazy">
+              <svg class="route" viewBox="0 0 1080 864" aria-hidden="true">
+                <path class="route-path" pathLength="1" d="M762 864C767 850 779 813 790 780C801 747 817 692 827 665C837 638 842 636 850 620C858 604 868 587 878 572C888 557 896 544 907 532C918 520 935 507 945 497C955 487 963 482 966 474C969 466 968 454 964 446C960 438 953 432 940 428C927 424 910 424 885 421C860 418 814 411 790 407C766 403 767 402 742 397C717 392 674 382 640 375C606 368 567 360 537 354C507 348 500 338 460 337C420 336 335 341 300 348C265 355 267 369 250 380C233 391 216 404 200 415C184 426 170 438 157 447C144 456 131 462 120 470C109 478 97 486 90 492C83 498 78 503 80 507C82 511 89 514 100 518C111 522 135 529 147 533C159 537 168 541 172 543"/>
+                <circle class="route-end" cx="172" cy="543" r="13"/>
+              </svg>
+            </div>
+            <figcaption><span class="find-n">1</span>Dall'alto: il percorso fino allo studio</figcaption>
+          </figure>
+          <figure class="find-step find-building">
+            <picture class="scallop"><img src="assets/img/palazzo-studio.webp" width="800" height="800" alt="Il palazzo dello studio in Viale Trieste: la freccia indica il balcone con l'insegna" loading="lazy"></picture>
+            <figcaption><span class="find-n">2</span>Il palazzo: lo studio è al piano dell'insegna</figcaption>
+          </figure>
+        </div>
+        <div class="where-grid">
+          <div class="where-copy">
+            <address>
+              Studio Dentistico Ceraldi<br>
+              Viale Trieste snc<br>
+              81037 Sessa Aurunca (CE)
+            </address>
+            <div class="where-links">
+              <a class="link-arrow" href="https://www.google.com/maps/dir/?api=1&amp;destination=Studio+Dentistico+Ceraldi&amp;destination_place_id=ChIJVdut1wnoOhMRwO00Xf3rjd8" rel="noopener" target="_blank">Indicazioni stradali<svg class="i" aria-hidden="true"><use href="#i-arrow"/></svg></a>
+              <a class="link-arrow" href="https://www.google.com/maps/search/?api=1&amp;query=Studio+Dentistico+Ceraldi&amp;query_place_id=ChIJVdut1wnoOhMRwO00Xf3rjd8" rel="noopener" target="_blank">Apri in Google Maps<svg class="i" aria-hidden="true"><use href="#i-arrow"/></svg></a>
+            </div>
+          </div>
+          <div class="map" data-map>
+            <div class="map-facade">
+              <svg class="i map-pin" aria-hidden="true"><use href="#i-pin"/></svg>
+              <p>La mappa è fornita da Google: caricandola, Google riceve alcuni dati di navigazione.</p>
+              <button class="btn btn-secondary" type="button" data-map-load>Mostra la mappa</button>
+            </div>
           </div>
         </div>
       </div>
@@ -378,7 +399,7 @@
     <div class="wrap footer-grid">
       <div class="footer-brand">
         <span class="footer-logo"><img src="assets/img/logo-412.webp" width="206" height="79" alt="Studio Dentistico Giovanni Ceraldi" loading="lazy"></span>
-        <p>Viale Trieste, Res. Traianea, 81037 Sessa Aurunca (CE)<br>
+        <p>Viale Trieste snc, 81037 Sessa Aurunca (CE)<br>
           <a href="tel:+390823938182">0823 938182</a> · <a href="https://wa.me/393311939977" rel="noopener">WhatsApp 331 1939977</a><br>
           <a href="mailto:postmaster@studiodentisticoceraldi.it">postmaster@studiodentisticoceraldi.it</a></p>
         <ul class="social">
@@ -414,6 +435,6 @@
     <symbol id="i-xray" viewBox="0 0 24 24"><rect x="2" y="5" width="20" height="14" rx="2"/><path d="M6 12c1.2-2 2.4-2 3.6 0s2.4 2 3.6 0 2.4-2 3.6 0 1.2 1 1.2 1"/></symbol>
   </svg>
 
-  <script src="assets/js/main.js?v=7" defer></script>
+  <script src="assets/js/main.js?v=8" defer></script>
 </body>
 </html>
